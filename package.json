@@ -35,8 +35,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "start": "electron-vite preview",
+    "bundle:node": "node scripts/bundle-node.mjs",
     "package": "electron-vite build && electron-builder",
-    "package:mac": "electron-vite build && electron-builder --mac",
+    "package:mac": "npm run bundle:node && electron-vite build && electron-builder --mac && node scripts/make-dmg.mjs",
     "package:win": "electron-vite build && electron-builder --win",
     "package:linux": "electron-vite build && electron-builder --linux"
   },

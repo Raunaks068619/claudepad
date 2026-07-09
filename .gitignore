@@ -6,3 +6,5 @@ release
 *.log
 .DS_Store
 .vite
+# Bundled Node binary for packaging (~100MB, produced by scripts/bundle-node.mjs)
+build/node

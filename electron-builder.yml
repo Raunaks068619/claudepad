@@ -21,11 +21,20 @@ files:
   - '!electron.vite.config.{js,ts,mjs,cjs}'
   - '!{.eslintrc,.prettierrc,tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
 mac:
-  # 'dir' emits ClaudePad.app directly (no dmg/notarization overhead). identity
-  # null = skip code-signing for personal/local use (open via right-click first).
+  # electron-builder emits the .app (dir); scripts/make-dmg.mjs then wraps it in
+  # a drag-to-Applications .dmg via hdiutil. We deliberately AVOID electron-
+  # builder's own dmg target — it shells out to a vendored Python (dmgbuild) that
+  # breaks on modern Homebrew Python. hdiutil is always present on macOS.
+  # identity null = unsigned (no Developer ID); users clear the quarantine flag
+  # once on first open — see the README. The bundled Node binary (extraResources)
+  # lets the SDL/HID worker run on machines with no Node installed.
   target: [dir]
   identity: null
   category: public.app-category.developer-tools
+  icon: build/icon.icns
+  extraResources:
+    - from: build/node
+      to: node
 win:
   target: [nsis]
 linux:

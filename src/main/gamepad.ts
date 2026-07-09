@@ -37,15 +37,25 @@ export interface GamepadServiceDeps {
 }
 
 /**
- * Resolve a SYSTEM Node binary to run the SDL worker under. We must NOT use
+ * Resolve a real Node binary to run the SDL/HID worker under. We must NOT use
  * Electron's bundled Node — @kmamal/sdl's native addon is built against a
- * different ABI there and segfaults. In dev, Node is on PATH; we also probe the
- * usual install locations as a fallback.
+ * different ABI there and segfaults (verified: exit 139).
+ *
+ * Resolution order:
+ *   1. CLAUDEPAD_NODE override (power users / CI).
+ *   2. The Node binary WE bundle into the packaged app at Contents/Resources/node
+ *      (see scripts/bundle-node.mjs + electron-builder extraResources). This is
+ *      the only reliable source in a distributed .app: a GUI-launched app does
+ *      not inherit the user's shell/nvm PATH, so we cannot assume Node exists.
+ *   3. In dev (unpackaged), the usual system-install locations / PATH.
  */
 function resolveNodePath(): string {
   if (process.env.CLAUDEPAD_NODE && existsSync(process.env.CLAUDEPAD_NODE)) {
     return process.env.CLAUDEPAD_NODE
   }
+  // Bundled Node inside the packaged app (absent in dev → falls through).
+  const bundled = process.resourcesPath ? join(process.resourcesPath, 'node') : null
+  if (bundled && existsSync(bundled)) return bundled
   const candidates = ['/opt/homebrew/bin/node', '/usr/local/bin/node', '/usr/bin/node']
   for (const c of candidates) if (existsSync(c)) return c
   try {

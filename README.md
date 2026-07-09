@@ -3,6 +3,7 @@
 **Drive Claude Desktop, Claude Code (CLI), and your OS with a PS4 / DualShock controller.**
 Cross-platform: **macOS · Windows · Linux**.
 
+[![Download macOS .dmg](https://img.shields.io/badge/Download-macOS%20.dmg-black?logo=apple)](https://github.com/Raunaks068619/claudepad/releases/latest)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-blue)
 ![Built with Electron](https://img.shields.io/badge/built%20with-Electron-47848F)
@@ -11,6 +12,20 @@ Cross-platform: **macOS · Windows · Linux**.
 Map any button to a Claude action (send, stop, new chat, slash commands), steer the cursor with the sticks, and tune sensitivity live — all from the couch.
 
 > 📹 **Demo:** _add your video link here_
+
+---
+
+## ⬇️ Download (macOS · Apple Silicon)
+
+**[Download the latest `.dmg`](https://github.com/Raunaks068619/claudepad/releases/latest)** → open it, drag **ClaudePad** into **Applications**, launch.
+
+> **First launch (the app is unsigned):** macOS Gatekeeper blocks unsigned apps the first time. Either **right-click ClaudePad → Open → Open**, or run once in Terminal:
+> ```bash
+> xattr -dr com.apple.quarantine /Applications/ClaudePad.app
+> ```
+> Then, when prompted, grant **Accessibility** (System Settings → Privacy & Security → Accessibility) so ClaudePad can synthesize input. Pair your DualShock over Bluetooth or USB — that's it. No Node or other tooling required; a Node runtime is bundled inside the app for the controller worker.
+
+> 🪟 🐧 **Windows / Linux / Intel Mac:** not pre-built yet — [build from source](#getting-started) (the stack is cross-platform).
 
 ---
 
