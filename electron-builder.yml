@@ -1,0 +1,33 @@
+appId: com.raunak.claudepad
+productName: ClaudePad
+directories:
+  buildResources: build
+  output: release
+# asar is DISABLED on purpose: the SDL / node-hid input workers are forked under
+# SYSTEM Node (not Electron), and an external Node process cannot read scripts or
+# native modules from inside an app.asar archive. Keeping everything on the real
+# filesystem lets the workers fork + require normally.
+asar: false
+# Do NOT let electron-builder rebuild native modules for Electron's ABI. All
+# three (nut.js, @kmamal/sdl, node-hid) are N-API / ABI-stable, and SDL+node-hid
+# must stay built for SYSTEM Node (that's what the workers run under). Rebuilding
+# would re-introduce the Electron-ABI segfault the worker split was designed to
+# avoid — and it also needs a working node-gyp/Python toolchain, which this
+# machine lacks.
+npmRebuild: false
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintrc,.prettierrc,tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+mac:
+  # 'dir' emits ClaudePad.app directly (no dmg/notarization overhead). identity
+  # null = skip code-signing for personal/local use (open via right-click first).
+  target: [dir]
+  identity: null
+  category: public.app-category.developer-tools
+win:
+  target: [nsis]
+linux:
+  target: [AppImage]
+  category: Utility

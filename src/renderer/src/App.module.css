@@ -1,0 +1,113 @@
+.shell {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+
+.nav {
+  border-right: 1px solid var(--mantine-color-dark-4);
+  background: var(--mantine-color-dark-8);
+  padding: var(--mantine-spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mantine-spacing-lg);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 4px 2px;
+}
+
+.brandMark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--mantine-color-clay-5), var(--mantine-color-clay-8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  appearance: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--mantine-radius-md);
+  background: transparent;
+  color: var(--mantine-color-gray-4);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.navItem:hover {
+  background: var(--mantine-color-dark-6);
+  color: var(--mantine-color-gray-1);
+}
+
+.navItemActive {
+  background: var(--mantine-color-clay-9);
+  color: var(--mantine-color-clay-1);
+}
+
+.navItemActive:hover {
+  background: var(--mantine-color-clay-9);
+  color: var(--mantine-color-clay-0);
+}
+
+.navFooter {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.content {
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mantine-spacing-md);
+  padding: var(--mantine-spacing-md) var(--mantine-spacing-xl);
+  border-bottom: 1px solid var(--mantine-color-dark-4);
+  background: var(--mantine-color-dark-8);
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--mantine-color-gray-6);
+  flex: none;
+}
+
+.statusDot[data-connected] {
+  background: var(--mantine-color-green-5);
+  box-shadow: 0 0 0 3px var(--mantine-color-green-9);
+}
+
+.contentInner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--mantine-spacing-xl);
+}
