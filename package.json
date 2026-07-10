@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Control Claude Desktop & Claude CLI (and your OS) with a PS4 / DualShock controller. Cross-platform (Windows, macOS, Linux).",
   "main": "./out/main/index.js",
+  "bin": {
+    "claudepad": "bin/claudepad.mjs"
+  },
   "author": "Raunak Singh",
   "license": "MIT",
   "repository": {

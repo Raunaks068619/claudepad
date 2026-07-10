@@ -25,7 +25,21 @@ Map any button to a Claude action (send, stop, new chat, slash commands), steer 
 > ```
 > Then, when prompted, grant **Accessibility** (System Settings → Privacy & Security → Accessibility) so ClaudePad can synthesize input. Pair your DualShock over Bluetooth or USB — that's it. No Node or other tooling required; a Node runtime is bundled inside the app for the controller worker.
 
-> 🪟 🐧 **Windows / Linux / Intel Mac:** not pre-built yet — [build from source](#getting-started) (the stack is cross-platform).
+> 🪟 🐧 **Windows / Linux / Intel Mac:** no prebuilt binary yet — use the `npx` one-liner below or [build from source](#getting-started).
+
+---
+
+## ⚡ Run with `npx` (any OS, no install)
+
+Have Node 18+ and a controller? Run ClaudePad straight from GitHub — no clone, no `.dmg`:
+
+```bash
+npx github:Raunaks068619/claudepad
+```
+
+First run installs dependencies (including Electron), builds the app, and launches it; grant **Accessibility** when prompted. This is the quickest path on **Windows / Linux / Intel Mac**.
+
+> Needs Node 18+, network, and a controller. Most machines pull prebuilt native binaries; uncommon Node/OS combos may compile `node-hid` (needs Xcode Command Line Tools / build-essential). The [`.dmg`](#-download-macos--apple-silicon) stays the zero-dependency option for Apple Silicon.
 
 ---
 
