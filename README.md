@@ -15,31 +15,29 @@ Map any button to a Claude action (send, stop, new chat, slash commands), steer 
 
 ---
 
-## ⬇️ Download (macOS · Apple Silicon)
+## ▶️ Run it — one command, no install
 
-**[Download the latest `.dmg`](https://github.com/Raunaks068619/claudepad/releases/latest)** → open it, drag **ClaudePad** into **Applications**, launch.
-
-> **First launch (the app is unsigned):** macOS Gatekeeper blocks unsigned apps the first time. Either **right-click ClaudePad → Open → Open**, or run once in Terminal:
-> ```bash
-> xattr -dr com.apple.quarantine /Applications/ClaudePad.app
-> ```
-> Then, when prompted, grant **Accessibility** (System Settings → Privacy & Security → Accessibility) so ClaudePad can synthesize input. Pair your DualShock over Bluetooth or USB — that's it. No Node or other tooling required; a Node runtime is bundled inside the app for the controller worker.
-
-> 🪟 🐧 **Windows / Linux / Intel Mac:** no prebuilt binary yet — use the `npx` one-liner below or [build from source](#getting-started).
-
----
-
-## ⚡ Run with `npx` (any OS, no install)
-
-Have Node 18+ and a controller? Run ClaudePad straight from GitHub — no clone, no `.dmg`:
+If you have **Node 18+**, just run it. No clone, no build, no `.dmg`, **no code-signing** — it works on **macOS · Windows · Linux**:
 
 ```bash
 npx github:Raunaks068619/claudepad
 ```
 
-First run installs dependencies (including Electron), builds the app, and launches it; grant **Accessibility** when prompted. This is the quickest path on **Windows / Linux / Intel Mac**.
+That fetches and launches ClaudePad. On **macOS**, grant **Accessibility** to your terminal when asked (System Settings → Privacy & Security → Accessibility) so it can send input. Then pair your DualShock over Bluetooth/USB, hit **Arm**, and drive Claude.
 
-> Needs Node 18+, network, and a controller. Most machines pull prebuilt native binaries; uncommon Node/OS combos may compile `node-hid` (needs Xcode Command Line Tools / build-essential). The [`.dmg`](#-download-macos--apple-silicon) stays the zero-dependency option for Apple Silicon.
+<sub>Needs Node 18+, a network connection, and a controller. Most machines use prebuilt native binaries; unusual Node/OS combos may compile `node-hid` (needs Xcode Command Line Tools / build-essential).</sub>
+
+---
+
+## ⬇️ Prefer a native app? (optional macOS `.dmg`)
+
+No Node? Grab the **[macOS `.dmg`](https://github.com/Raunaks068619/claudepad/releases/latest)** (Apple Silicon) — drag **ClaudePad** to **Applications** and open. Everything is bundled; no Node required.
+
+> It's **unsigned** (open source, no Apple Developer ID), so the first open needs **right-click → Open → Open** — or once in Terminal:
+> ```bash
+> xattr -dr com.apple.quarantine /Applications/ClaudePad.app
+> ```
+> Then grant **Accessibility** when prompted.
 
 ---
 

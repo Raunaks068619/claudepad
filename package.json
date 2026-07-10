@@ -6,6 +6,10 @@
   "bin": {
     "claudepad": "bin/claudepad.mjs"
   },
+  "files": [
+    "out",
+    "bin"
+  ],
   "author": "Raunak Singh",
   "license": "MIT",
   "repository": {
