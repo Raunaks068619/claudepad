@@ -27,10 +27,19 @@ function run(cmd, args, opts = {}) {
   })
 }
 
-// Build once if the compiled output isn't present (fresh npx install).
+// Normally the `prepare` script builds the app at install time. Guard here in
+// case the build output is missing (e.g. scripts were skipped); fall back to
+// building, or exit with guidance if the build tool was pruned.
 if (!existsSync(join(root, 'out', 'main', 'index.js'))) {
-  console.log('[claudepad] first run — building the app (a few seconds)…')
   const evite = join(root, 'node_modules', '.bin', isWin ? 'electron-vite.cmd' : 'electron-vite')
+  if (!existsSync(evite)) {
+    console.error(
+      '[claudepad] no build found and electron-vite is unavailable.\n' +
+        '           Reinstall with scripts enabled, or run `npm install && npm run build` in the project.'
+    )
+    process.exit(1)
+  }
+  console.log('[claudepad] first run — building the app (a few seconds)…')
   await run(evite, ['build'], { shell: isWin })
 }
 

@@ -32,6 +32,7 @@
   "scripts": {
     "dev": "electron-vite dev",
     "build": "electron-vite build",
+    "prepare": "electron-vite build",
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
@@ -47,6 +48,7 @@
   "dependencies": {
     "@kmamal/sdl": "^0.11.13",
     "@nut-tree-fork/nut-js": "^4.2.0",
+    "electron": "^31.1.0",
     "electron-store": "^8.2.0",
     "node-hid": "^3.3.0"
   },
@@ -57,7 +59,6 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "electron": "^31.1.0",
     "electron-builder": "^24.13.3",
     "electron-vite": "^2.3.0",
     "react": "^18.3.1",

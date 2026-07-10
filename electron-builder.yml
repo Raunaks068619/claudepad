@@ -20,6 +20,9 @@ files:
   - '!src/*'
   - '!electron.vite.config.{js,ts,mjs,cjs}'
   - '!{.eslintrc,.prettierrc,tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+  # electron is now a runtime dependency (for the npx launcher), but it is the
+  # framework the build already provides — never copy it into the packaged app.
+  - '!**/node_modules/electron/**'
 mac:
   # electron-builder emits the .app (dir); scripts/make-dmg.mjs then wraps it in
   # a drag-to-Applications .dmg via hdiutil. We deliberately AVOID electron-
