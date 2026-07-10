@@ -1,5 +1,7 @@
 node_modules
-out
+# NOTE: out/ (the built app) IS committed so `npx github:...` can run without a
+# build step — npx installs prod deps only and doesn't run the prepare build.
+# Rebuild + recommit it after changing src: `npm run build`.
 dist
 dist-electron
 release
