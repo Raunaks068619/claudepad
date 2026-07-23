@@ -17,7 +17,7 @@ Map any button to a Claude action (send, stop, new chat, slash commands), steer 
 
 ## ▶️ Run it — one command, no install
 
-If you have **Node 18+**, just run it. No clone, no build, no `.dmg`, **no code-signing** — it works on **macOS · Windows · Linux**:
+If you have **Node 18+**, just run it. No clone, no build, no `.dmg`, and no admin access — it works on **macOS · Windows · Linux**:
 
 ```bash
 npx github:Raunaks068619/claudepad
@@ -25,7 +25,7 @@ npx github:Raunaks068619/claudepad
 
 That fetches and launches ClaudePad. On **macOS**, grant **Accessibility** to your terminal when asked (System Settings → Privacy & Security → Accessibility) so it can send input. Then pair your DualShock over Bluetooth/USB, hit **Arm**, and drive Claude.
 
-<sub>Needs Node 18+, a network connection, and a controller. Most machines use prebuilt native binaries; unusual Node/OS combos may compile `node-hid` (needs Xcode Command Line Tools / build-essential).</sub>
+<sub>Needs Node 18+, a network connection, and a controller. On macOS 26, the first launch locally seals Electron's app bundle; it does not disable Gatekeeper or need admin access. Most machines use prebuilt native binaries; unusual Node/OS combos may compile `node-hid` (needs Xcode Command Line Tools / build-essential).</sub>
 
 ---
 
