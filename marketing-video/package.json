@@ -1,0 +1,24 @@
+{
+  "name": "claudepad-marketing-video",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "still": "remotion still ClaudePadPromo out/claudepad-promo-v2-vo-poster.png --frame=885",
+    "render": "remotion render ClaudePadPromo out/claudepad-promo-v2-vo.mp4 --codec=h264 --crf=18",
+    "still:landscape": "remotion still ClaudePadPromoLandscape out/claudepad-promo-v2-vo-landscape-poster.png --frame=885",
+    "render:landscape": "remotion render ClaudePadPromoLandscape out/claudepad-promo-v2-vo-landscape.mp4 --codec=h264 --crf=18"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.486",
+    "@remotion/media": "4.0.486",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.486"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.5.4"
+  }
+}
